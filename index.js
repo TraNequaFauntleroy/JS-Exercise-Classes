@@ -64,7 +64,7 @@ const tranequa = new Person('TraNequa', 30);
 
 
 tranequa.eat('sandwich');
-tranequa.eat('kimichi');
+tranequa.eat('kimchi');
 tranequa.eat('spinach');
 tranequa.eat('candy');
 tranequa.eat('juice');
@@ -95,8 +95,33 @@ console.log('task 1', tranequa.poop());
 */
 
 class Car {
-  
+  constructor(model, milesPerGallon) {
+    this.model = model,
+    this.milesPerGallon = milesPerGallon,
+    this.tank = 0,
+    this.odometer = 0
+  }
+  fill(gallons) {
+    return this.tank = this.tank + gallons;
+  }
+  drive(distance) {
+    this.odometer = this.odometer + distance;
+    if (this.tank < distance) {
+      return this.milesPerGallon - this.tank;
+    }
+    if (this.odometer < this.tank) {
+      return `I ran out of fuel at ${this.odometer} miles!`
+    } 
+  }
 }
+
+const newCar = new Car ('Chevy', 33);
+
+newCar.fill(50);
+newCar.drive(30);
+
+console.log('task 2', newCar);
+
 
 /*
   TASK 3
@@ -111,8 +136,25 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  
+  constructor(attributes) {
+    this.name = attributes.name,
+    this.age = attributes.age,
+    this.location = attributes.location
+  }
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}!`
+  }
 }
+
+const student = new Lambdasian ({
+  name: 'TraNequa',
+  age: 30,
+  location: 'Los Angeles'
+});
+
+student.speak();
+
+console.log('task 3', student.speak());
 
 /*
   TASK 4
