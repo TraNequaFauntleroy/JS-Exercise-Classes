@@ -278,9 +278,8 @@ class ProjectManager extends Instructor {
     return `${this.name} announces to ${channel}` 
   }
   debugsCode(student, subject) {
-    return `${this.name} debugs ${student}'s code on ${subject}`
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
   }
-   
 }
 
 const manager = new ProjectManager({
@@ -288,12 +287,20 @@ const manager = new ProjectManager({
   age: 31,
   location: 'Salem',
   specialty: 'cooking',
-  favLanguage: 'English',
+  favLanguage: 'SQ+',
   catchPhrase: 'for real, for real',
   previousBackground:'trapper',
-  className:'web 46',
+  className:'web 47',
   favSubjects: ['Music', 'Art', 'Sports']
-})
+});
+
+manager.standUp('@channel standy times!');
+manager.debugsCode(mikey, 'arrays');
+
+console.log(manager.standUp('@channel standy times!'));
+console.log(manager.debugsCode(mikey, 'arrays'));
+
+
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
